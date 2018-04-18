@@ -61,7 +61,6 @@ class Funding extends React.Component {
 
 			  <table>
 			    <tbody className="list">
-			    	{tableRows}
 			      <tr>
 			        <td className="Announced Date" data-value='20170810'>Aug 10, 2017</td>
 			        <td className="Transaction Name">Series D - Coinbase</td>
