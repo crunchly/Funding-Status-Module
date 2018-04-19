@@ -1,23 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from 'List.js';
 
 class Funding extends React.Component {
 	constructor() {
 		super();
 		this.state = {
 			rounds: [],
+			announcedDate: false,
+			transactionName: false,
+			numInvestors: false,
+			moneyRaised: false,
+			leadInvestor: false,
 		}
+		this.sortTable = this.sortTable.bind(this);
 	}
 
 	componentDidMount() {
-		var options = {
-  		valueNames: [ {'name': 'Date', attr: 'data-value'}, 'Transaction Name', 'Number of Investors', { name: 'Money', attr: 'data-value' }, 'Lead Investors']
-		};
-
-		var userList = new List('funding_rounds', options);
-
 		this.fetchData();
 	}
 
@@ -31,6 +30,31 @@ class Funding extends React.Component {
 				this.setState({rounds: data});
 			}
 		})
+	}
+
+	sortTable(e) {
+		var data = this.state;
+
+		if (this.state[e.target.id] === false) {
+			data.rounds.sort(function(a, b) {
+				if (typeof a[e.target.id] === 'string') {
+					return b[e.target.id].localeCompare(a[e.target.id]);
+				} else {
+					return b[e.target.id] - a[e.target.id];
+				}
+			});			
+		} else {
+			data.rounds.sort(function(a, b) {
+				if (typeof a[e.target.id] === 'string') {
+					return a[e.target.id].localeCompare(b[e.target.id]);
+				} else {
+					return a[e.target.id] - b[e.target.id];
+				}
+			});		
+		}
+
+		data[e.target.id] = !data[e.target.id];
+		this.setState(data);
 	}
 
 	render() {
@@ -78,19 +102,19 @@ class Funding extends React.Component {
 
 		return (
 			<div id="funding_rounds">
-  			<button className="sort" data-sort="Date">
+  			<button onClick={this.sortTable} className="sort-button" id="announcedDate">
     			Announced Date
   			</button>
-  			<button className="sort" data-sort="Transaction Name">
+  			<button onClick={this.sortTable} className="sort-button" id="transactionName">
     			Transaction Name
   			</button>
-  			<button className="sort" data-sort="Number of Investors">
+  			<button onClick={this.sortTable} className="sort-button" id="numInvestors">
     			Number of Investors
   			</button>
-  			<button className="sort" data-sort="Money">
+  			<button onClick={this.sortTable} className="sort-button" id="moneyRaised">
     			Money Raised
   			</button>
-  			<button className="sort" data-sort="Lead Investors">
+  			<button onClick={this.sortTable} className="sort-button" id="Lead Investors">
     			Lead Investors
   			</button>  	
 
@@ -105,37 +129,6 @@ class Funding extends React.Component {
 }
 
 ReactDOM.render(<Funding />, document.getElementById('funding_status'));
-
-
-
-			      // <tr>
-			      //   <td className="Announced Date" data-value='20170810'>Aug 10, 2017</td>
-			      //   <td className="Transaction Name">Series D - Coinbase</td>
-			      //   <td className="Number of Investors">13</td>
-			      //   <td className="Money Raised" data-value='0108100000'>$108.1M</td>
-			      //   <td className="Lead Investors">IVP (Institutional Venture Partners)</td>
-			      // </tr>
-			      // <tr>
-			      //   <td className="Announced Date" data-value='20160707'>Jul 7, 2016</td>
-			      //   <td className="Transaction Name">Series C - Coinbase</td>
-			      //   <td className="Number of Investors">13</td>
-			      //   <td className="Money Raised" data-value='0075000000'>$75M</td>
-			      //   <td className="Lead Investors">Andreessen Horowitz</td>
-			      // </tr>
-			      // <tr>
-			      //   <td className="Announced Date" data-value='20151210'>Dec 10, 2015</td>
-			      //   <td className="Transaction Name">Series A - Coinbase</td>
-			      //   <td className="Number of Investors">2</td>
-			      //   <td className="Money Raised" data-value='0010000000'>$10M</td>
-			      //   <td className="Lead Investors">IVP (Institutional Venture Partners)</td>
-			      // </tr>
-			      // <tr>
-			      //   <td className="Announced Date" data-value='20150110'>Jan 10, 2015</td>
-			      //   <td className="Transaction Name">Seed Round - Coinbase</td>
-			      //   <td className="Number of Investors">5</td>
-			      //   <td className="Money Raised" data-value='0000600000'>$600K</td>
-			      //   <td className="Lead Investors">Lowercase Capital</td>
-			      // </tr>
 
 
 
