@@ -3,3 +3,120 @@ body {
   padding: 0;
   background: #eee;
 }
+
+.title {
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	font-size: 16px;
+	font-weight: 500;
+	margin-left: 4px;
+	margin-right: 4px;
+	max-width: 100%;
+	justify-content: center;
+	color: rgba(0, 0, 0, .87);
+	font-family: Roboto,Helvetica Neue,sans-serif;
+	padding: 10px;
+	margin: 5px;
+}
+
+#funding_rounds {
+	padding-bottom: 8px;
+  min-width: 50%;
+  background: #fff;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  font-size: 14px;
+  font-family: Roboto,Helvetica Neue,sans-serif;
+  color: rgba(0,0,0,.87);
+  width: 95%;
+}
+
+.summary {
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, .1);
+}
+.summary-data {
+  padding-bottom: 8px;
+  background: #fff;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  font-size: 14px;
+  font-family: Roboto,Helvetica Neue,sans-serif;
+  color: rgba(0,0,0,.87);
+  padding: 10px;
+  margin: 5px;
+  display: inline-block;
+  width: 45%;
+}
+
+.totalNumFundingRounds {
+  color: #0288d1;
+  font-size: 14px;
+  font-family: Roboto,Helvetica Neue,sans-serif;
+  background: none;
+}
+
+.totalFundingAmount {
+  color: #0288d1;
+  font-size: 14px;
+  font-family: Roboto,Helvetica Neue,sans-serif;
+  background: none;
+}
+
+table {
+	width: 100%;
+	display: table;
+}
+
+td {
+	width: 20%;
+	padding: 5px;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.grid-row {
+}
+
+.sort-button {
+	width: 20%;
+	height: 35px;
+	background-color: rgba(0, 0, 0, .05);
+	align-content: center;
+	color: rgba(0, 0, 0, .5);
+	font-size: 12px;
+	border-right: 1px solid rgba(0, 0, 0, .1);
+	padding: 5px;
+}
+
+
+#announcedDateCell {
+	text-align: left;
+	padding-left: 20px;
+	color: rgba(0, 0, 0, .60);
+	text-overflow: ellipsis;
+}
+
+#transactionNameCell {
+	color: #0288d1;
+	text-align: left;
+	padding-left: 20px;
+	text-overflow: ellipsis;
+}
+
+#numInvestorsCell {
+	color: #0288d1;
+	text-align: right;
+	padding-right: 20px;
+	text-overflow: ellipsis;
+}
+
+#moneyRaisedCell {
+	text-align: right;
+	color: rgba(0, 0, 0, .60);
+	padding-right: 20px;
+	text-overflow: ellipsis;
+}
+
+#leadInvestorsCell {
+	color: #0288d1;
+	text-align: right;
+	padding-left: 20px;
+	text-overflow: ellipsis;
+}
