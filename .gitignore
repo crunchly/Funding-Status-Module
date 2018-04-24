@@ -1,0 +1,7 @@
+*.log
+.DS_Store
+node_modules
+Client/dist/bundle.js
+coverage
+*.swp
+*.swo
