@@ -29,7 +29,6 @@ class Funding extends React.Component {
 			contentType: 'application/json',
 			success: (data) => {
 				console.log('success');
-				console.log(data);
 				this.setState({rounds: data});
 			}
 		})
