@@ -1,13 +1,14 @@
 const db  = require('./index.js');
-const fs = require('file-system');
+const fs = require('fs');
 const Funding = require('./Funding.js');
+const path = require('path');
 
 const insertSampleData = function(data) {
   Funding.create(data)
     .then(() => db.disconnect());
 };
 
-fs.readFile('funding_rounds.json', (err, data) => {
+fs.readFile(path.join(__dirname, 'funding_rounds.json'), (err, data) => {
   if (err) throw err;
   var data = JSON.parse(data);
 
@@ -23,7 +24,6 @@ fs.readFile('funding_rounds.json', (err, data) => {
     singleFundingRound.moneyRaised = data[i].raised_amount_usd;
     fundingData.push(singleFundingRound)
   }
-  console.log(fundingData);
   insertSampleData(fundingData);
 });
 
