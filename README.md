@@ -1,6 +1,6 @@
 # Crunchly (Crunchbase Clone)
 
-> Project description
+> A clone of the funding status module in the Crunchbase application, using React and Javascript for the front-end.
 
 ## Related Projects
 
@@ -8,22 +8,9 @@
   - https://github.com/crunchly/Current-Team-Module
   - https://github.com/crunchly/Chart-Module
 
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
 ## Usage
 
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
+> npm start to run the server
 
 ## Development
 
@@ -32,7 +19,6 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
 ```
 
